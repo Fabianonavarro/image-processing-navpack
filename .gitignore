@@ -1,0 +1,4 @@
+# Arquivos e diretórios para ignorar
+.env
+.venv/
+__pycache__/
