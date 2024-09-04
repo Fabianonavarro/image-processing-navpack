@@ -6,91 +6,97 @@ Um projeto Python para processamento de imagens, utilizando bibliotecas como `sc
 
 ```plaintext
 image_processing_navpack/
-├─ .venv
-│
-├─── image_processing_navpack/
-│    ├─── imgs/
-│    │    ├── imagem1.jpg
-│    │    └── imagem2.jpg
-│    ├─── processing/
-│    │    ├── __init__.py
-│    │    ├── combination.py
-│    │    └── transformation.py
-│    ├─── utils/
-│    │    ├── __init__.py
-│    │    ├── io.py
-│    │    └── plot.py
-│    └─── tests/
-│         ├── __init__.py
-│         ├── test_processing.py
-│         └── test_utils.py
-├── pyproject.toml
-├── test_image.py
-└── README.md
+├── .venv/                     # Ambiente virtual (não deve ser incluído no pacote)
+├── image_processing_navpack/  # Pasta do código fonte
+│   ├── imgs/                 # Imagens usadas
+│   │   ├── imagem1.jpg
+│   │   └── imagem2.jpg
+│   ├── processing/           # Código de processamento de imagem
+│   │   ├── __init__.py
+│   │   ├── combination.py
+│   │   └── transformation.py
+│   ├── utils/                # Código de utilitários
+│   │   ├── __init__.py
+│   │   ├── io.py
+│   │   └── plot.py
+│   └── tests/                # Testes
+│       ├── __init__.py
+│       ├── test_processing.py
+│       ├── test_utils.py
+│       └── test_image.py     # Script principal para o usuário final
+├── setup.py                  # Configuração do pacote
+├── MANIFEST.in                # Arquivo para incluir arquivos no pacote
+└── README.md                  # Documentação do projeto
 
 🚀 Instalação
 
 Clone o Repositório:
-git clone https://github.com/Fabianonavarro/image-processing-navpack.git
 
+
+Copiar código
+git clone https://github.com/Fabianonavarro/image_processing_navpack.git
 Navegue para o Diretório do Projeto:
-cd image-processing-navpack
 
-Instale as Dependências Usando Poetry:
-poetry install
+Copiar código
+cd image_processing_navpack
+Crie e Ative um Ambiente Virtual (opcional, mas recomendado):
 
-Ative o Ambiente Virtual:
-poetry shell
+Copiar código
+python -m venv .venv
+source .venv/bin/activate  # No Windows, use `.venv\Scripts\activate`
+Instale as Dependências Usando pip:
+
+Copiar código
+pip install -r requirements.txt
+Instale o Pacote Localmente:
+
+Copiar código
+pip install .
 
 🛠️ Uso
-Coloque suas Imagens no Diretório image_processing_navpack/imgs:
+
+Coloque suas Imagens no Diretório image_processing_navpack/imgs.
 
 Execute o Script Principal para Processar as Imagens:
 
-bash
 Copiar código
-poetry run python test_image.py
-Resultados: Os resultados serão salvos no diretório image_processing_navpack/imgs com os seguintes nomes:
+
+image-processing
+Os resultados serão salvos no diretório image_processing_navpack/imgs com os seguintes nomes:
 
 difference_image.jpg
 histogram_matched_image.jpg
+
 🧪 Testes
+
 Para executar os testes, use o comando:
 
 bash
 Copiar código
-poetry run pytest
+
+pytest
+
 📋 Contribuições
+
 Sinta-se à vontade para abrir issues e pull requests para melhorias ou correções.
 
 📜 Licença
+
 Este projeto está licenciado sob a Licença MIT.
 
 📚 Referências
+
 Scikit-Image Documentation
 ImageIO Documentation
-csharp
+markdown
 Copiar código
 
-### 3. Atualizar `test_image.py`
+### Alterações
 
-Caso tenha algum código que ainda esteja se referindo ao antigo nome do projeto, faça as seguintes alterações:
+1. **Atualizei o comando para executar o script principal** após a instalação do pacote, de acordo com a definição no `setup.py`.
+2. **Adicionei uma etapa para instalar o pacote localmente** usando `pip install .` após a instalação das dependências.
 
-- **Atualize os imports** se houver alguma referência ao nome antigo do projeto.
+Se precisar de mais ajustes ou tiver outras perguntas, só avisar!
 
-```python
-# Atualize quaisquer referências ao antigo nome do projeto, se existirem.
-4. Publicar no PyPI
-Certifique-se de que o novo nome está disponível no PyPI.
 
-Construa os arquivos de distribuição:
 
-bash
-Copiar código
-poetry build
-Publique o pacote:
-
-bash
-Copiar código
-poetry publish --build
-Verifique a publicação acessando o PyPI e buscando pelo novo nome do pacote.
