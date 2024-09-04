@@ -1,23 +1,26 @@
 import os
 import pytest
-import numpy as np
 from image_processing.utils.io import read_image, save_image
 from image_processing.utils.plot import plot_image
 
-def test_io():
-    img_folder = 'image_processing/imgs'
+# Caminho relativo para a pasta imgs
+IMG_DIR = os.path.join(os.path.dirname(__file__), '../imgs')
+
+def test_read_image():
+    image_path = os.path.join(IMG_DIR, 'imagem1.jpg')
+    image = read_image(image_path)
     
-    # Paths for testing
-    image1_path = os.path.join(img_folder, 'imagem1.jpg')
-    output_path = os.path.join(img_folder, 'output_test.jpg')
+    assert image is not None
+    assert image.shape[2] == 3  # Ensure it is an RGB image
 
-    image1 = read_image(image1_path)
-    assert image1 is not None
-
-    save_image(image1, output_path)
-    assert os.path.exists(output_path)
-
-    # Optionally, you can include assertions to check image properties
-
-    # Clean up
-    os.remove(output_path)
+def test_save_image():
+    image_path = os.path.join(IMG_DIR, 'imagem1.jpg')
+    image = read_image(image_path)
+    save_path = os.path.join(IMG_DIR, 'saved_image.jpg')
+    
+    save_image(image, save_path)
+    
+    assert os.path.exists(save_path)
+    saved_image = read_image(save_path)
+    assert saved_image is not None
+    assert saved_image.shape[2] == 3  # Ensure it is an RGB image
