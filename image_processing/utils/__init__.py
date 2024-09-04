@@ -1,3 +1,2 @@
-# image_processing/utils/__init__.py
-from .io import load_image
-from .plot import plot_image
+from .plot import plot_image, plot_result, plot_histograms_side_by_side
+from .io import read_image, save_image
