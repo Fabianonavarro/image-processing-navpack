@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='image_processing_navpack',
-    version='0.1.0',
+    version='0.2.7',  # Atualize a versão aqui
     description='A package for processing and analyzing images.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
@@ -22,7 +22,7 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'image-processing=image_processing.tests.test_image:main'  # Define o ponto de entrada principal
+            'image-processing=image_processing.tests.test_image:main'
         ]
     },
     classifiers=[

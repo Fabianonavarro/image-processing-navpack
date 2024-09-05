@@ -3,7 +3,11 @@ import numpy as np
 from skimage.io import imread, imsave
 from skimage.util import img_as_ubyte
 from skimage.color import gray2rgb
+import pkg_resources
 from image_processing.processing.transformation import normalize_image
+
+def get_resource_path(filename):
+    return pkg_resources.resource_filename(__name__, os.path.join('imgs', filename))
 
 def read_image(path, is_gray=False):
     """
